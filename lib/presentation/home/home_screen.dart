@@ -19,7 +19,19 @@ class _HomeState extends State<Home> {
             MainMenuItem(
               title: 'File',
               actions: [
-                PMItem(title: 'title'),
+                PMItem(
+                  title: 'New',
+                  onTap: () {
+                    print('zfzdfd');
+                  },
+                ),
+                PopupMenuDivider(),
+                PMItem(
+                  title: 'Open',
+                  onTap: () {
+                    print('zfzdfd');
+                  },
+                ),
               ],
             ),
             MainMenuItem(

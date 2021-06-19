@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:map_generator/presentation/ui/consts.dart';
 
-class MainMenuItem<T> extends StatelessWidget {
+class MainMenuItem extends StatelessWidget {
   final String title;
   final VoidCallback? onPressed;
-  final List<PopupMenuEntry<T>> actions;
+  final List<PopupMenuEntry<VoidCallback?>> actions;
 
   const MainMenuItem({
     Key? key,
@@ -26,6 +26,11 @@ class MainMenuItem<T> extends StatelessWidget {
             child: _buildMenuText(),
             padding: EdgeInsets.zero,
             offset: Offset(0, 25),
+            onSelected: (callback) {
+              if (callback != null) {
+                (callback as VoidCallback).call();
+              }
+            },
             itemBuilder: (_) => actions.map((it) => it).toList(),
           );
   }
