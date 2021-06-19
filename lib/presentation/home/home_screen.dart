@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:map_generator/presentation/ui/layout/main_layout.dart';
 import 'package:map_generator/presentation/ui/menu/main_menu.dart';
 import 'package:map_generator/presentation/ui/menu/main_menu_item.dart';
 import 'package:map_generator/presentation/ui/menu/pm_item.dart';
 import 'package:map_generator/presentation/ui/shortcut/actions.dart';
 import 'package:map_generator/presentation/ui/shortcut/intents.dart';
-import 'package:map_generator/presentation/ui/shortcut/keysets.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -32,6 +30,7 @@ class _HomeState extends State<Home> {
           actions: [
             PMItem(
               title: 'New',
+              shortcut: 'Ctrl+N',
               onTap: () {
                 final newIntent = NewIntent();
                 globalActions[newIntent.runtimeType]!.invoke(newIntent);

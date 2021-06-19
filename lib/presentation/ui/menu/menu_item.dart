@@ -6,12 +6,14 @@ class MenuItem extends StatelessWidget {
     Key? key,
     this.leading,
     this.trailing,
+    this.shortcut,
     required this.child,
   }) : super(key: key);
 
   final Widget child;
   final Widget? leading;
   final Widget? trailing;
+  final String? shortcut;
 
   @override
   Widget build(BuildContext context) {
@@ -23,6 +25,7 @@ class MenuItem extends StatelessWidget {
         children: [
           _buildBlock(leading),
           Expanded(child: child),
+          if (shortcut != null) _buildShortcut(),
           _buildBlock(trailing),
         ],
       ),
@@ -33,6 +36,13 @@ class MenuItem extends StatelessWidget {
     return SizedBox(
       width: 25,
       child: child,
+    );
+  }
+
+  Widget _buildShortcut() {
+    return Padding(
+      padding: EdgeInsets.only(left: 20),
+      child: Text(shortcut!),
     );
   }
 }
