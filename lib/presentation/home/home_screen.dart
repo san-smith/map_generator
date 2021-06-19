@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:map_generator/presentation/ui/layout/main_layout.dart';
+import 'package:map_generator/presentation/ui/menu/main_menu.dart';
+import 'package:map_generator/presentation/ui/menu/main_menu_item.dart';
+import 'package:map_generator/presentation/ui/menu/pm_item.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -9,8 +13,22 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
-      body: Center(),
+      body: MainLayout(
+        top: MainMenu(
+          items: [
+            MainMenuItem(
+              title: 'File',
+              actions: [
+                PMItem(title: 'title'),
+              ],
+            ),
+            MainMenuItem(
+              title: 'About',
+              onPressed: () {},
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
